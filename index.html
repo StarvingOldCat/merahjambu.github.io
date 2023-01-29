@@ -149,7 +149,7 @@
     <!-- PROJECT END -->
 
     <!-- CONTACT START -->
-    <sectopn id="contact" class="contact">
+    <section id="contact" class="contact">
       <div class="container">
         <div class="row text-center mb-5">
           <div class="col">
@@ -159,28 +159,43 @@
 
         <div class="row justify-content-center mb-5">
           <div class="col-md-6">
-            <form>
+
+            <form name="rizky-contact-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Your Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name">
+                <input type="text" class="form-control" id="name" name="nama" aria-describedby="name">
               </div>
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email">
+                <input type="email" class="form-control" id="email" name="email" aria-describedby="email">
               </div>
 
               <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="4"></textarea>
+                <textarea class="form-control" id="message" rows="4" name="pesan"></textarea>
               </div>
- 
-              <button type="submit" class="btn btn-success">Submit</button>
+              <!-- name nya diseusaikan sama tabel yg ada di googlesheet -->
+
+              <!-- alert -->
+              <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                <strong>Thank You!</strong> ,Your message has been received.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+              <!-- btn submit -->
+              <button type="submit" class="btn btn-primary btn-kirim">Submit</button>
+              <!-- button spinner -->
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
+              
             </form>
           </div>
         </div>
       </div>
-    </sectopn>
+    </section>
     <!-- CONTACT ENDS -->
 
     <!-- FOOTER START -->
@@ -200,8 +215,41 @@
     
 
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Option 1: Bootstrap Bundle with Popper (js cdn(online) nya bootstrap) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Contact Form start -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbw-KauFIcQcm2DuxBYH9oXEkeWhO_snKiR8Pgcz-PtFvaKyQHFH8zIRP8lxYKFVLh90/exec'  // link dari deployment appscriptnya google sheet (web app)
+      const form = document.forms['rizky-contact-form']     // samain dengan name form diatas
+
+      const btnKirim = document.querySelector('.btn-kirim')
+      const btnLoading = document.querySelector('.btn-loading')
+      const myAlert = document.querySelector('.my-alert')
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        // ketika tombol submit di klik(menjadi btn loading)
+        // tampilkan tombol loading, hilangkan tombol submit/kirim
+        btnLoading.classList.toggle('d-none')
+        btnKirim.classList.toggle('d-none')
+            // jadi toggle intinya ngebolak balikin yg tadinya ada jadi gak ada dan yg tadi nya gak ada jadi ada
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => {
+              // tampilkan tombol submit/loading, hilangkan tombol loading
+              btnLoading.classList.toggle('d-none')
+              btnKirim.classList.toggle('d-none')
+              // tampilkan alert (disini aja karna kondisin button sudah di klik)
+              myAlert.classList.toggle('d-none')
+              // rest isi form
+              form.reset()
+            console.log('Success!', response)
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+    <!-- Contact Form ends -->
 
   </body>
 </html>
