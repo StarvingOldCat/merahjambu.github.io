@@ -42,6 +42,18 @@
 }
 
 
+
+/* GALLERY ------------------------------------------------------------------ */
+.gallery-img {
+    width: 100%;
+}
+
+#gallery .row > * {                 /* (> * = apapun yang ada didalamnya persis setelah row, maka akn dihilangkan semua paddingnya)*/
+    padding: 0;
+}
+
+
+
 /* CONTACT ------------------------------------------------------------------ */
 .contact h2 {
     margin-top: 70px;
