@@ -1,70 +1,166 @@
 
 /* JUMBOTRON --------------------------------------------------------------- */
-.jumbotron {
-    padding-top: 6rem;
-    background-image: url(../img/jumbotron/swiss.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-}
+    .jumbotron {
+        padding-top: 6rem;
+        background-image: url(../img/jumbotron/swiss.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-.jumbotron h1, .jumbotron p {
-    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
-}
+    .jumbotron h1, .jumbotron p {
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .jumbotron img {
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        transition: 0.3s;
+    }
+    
+    .jumbotron img:hover {
+        transform: scale(1.060) !important; 
+        box-shadow: 0 0 25px rgba(73, 255, 240, 0.6);
+    }
+
 
 /* ABOUT -------------------------------------------------------------------- */
 
-.about h2 {
-    margin-top: 70px;
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.6);
-}
+    .about h2 {
+        margin-top: 70px;
+        text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.6);
+    }
 
+    .about p {
+        text-align: justify;
+    }
+
+/* === My Partners : jolly & molly section === */
+        .jm-box {
+            position: relative;
+            height: 450px;
+            background-color: rgba(58, 58, 94, 0.8);
+            border-radius: 15px;
+            margin: 100px 0 0 0;      /* atas(100), kanan, bawah, kiri(5)*/
+            overflow: hidden;
+            transform-style: preserve-3d;   /* dia gak 3d karena 'overflow:hidden' kalo gak make 'o:h' web nya rusak nambah luasnya kesamping karna before after dibawah*/
+        }
+
+        .jm-box::before {
+            content: 'Molly';
+            position: absolute;
+            color: white;
+            font-size: 3.5em; font-weight: bold; font-style: italic;
+            top: 88px;
+            right: -100px;   /*tulisan(molly nya) diumpetin ke kanan kotak jm-box -100px*/
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+            .jm-box:hover::before {
+                transform: translate(-150px, 0);     /* terus di tarik lagi dibalikin jadi -150px sumbu X pas di hover dari posisi right -100px tadi */
+                opacity: 0.4;
+                text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+            }
+            /*sumbu X(horizontal:-150%), sumbu Y(vertikal: 0)*/
+
+        .jm-box::after {
+            content: 'Jolly';
+            position: absolute;
+            color: white;
+            font-size: 3.5em; font-weight: bold; font-style: italic;
+            top: 280px;
+            left: -100px;   /*tulisan(molly nya) diumpetin ke kanan kotak jm-box -100px*/
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+            .jm-box:hover::after {
+                transform: translate(150px, 0);     /* terus di tarik lagi dibalikin jadi -150px sumbu X pas di hover dari posisi right -100px tadi */
+                opacity: 0.4;
+                text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+            }
+
+        .jm-name {
+            position: absolute;     
+            top: 0;
+            width: 100%;    /*karna absolut width 100% supaya text-centernya jalan*/
+            opacity: 0;
+            transition: 0.5s;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+            transform: translate3d(0, 0, 20px);                 /* dan lagi karna 'overflow:hidden' diatas jadi gak berfungsi*/
+        }
+        
+            .jm-box:hover .jm-name {
+                top: 20px;
+                opacity: 1;
+            }
+        
+        .jm-img {
+            max-width: 320px;
+            position: relative;
+            top: 20%;
+            left: 5%;
+            transition: 0.5s;
+            transform: translate3d(0, 0, 50px); 
+        }
+
+            .jm-box:hover .jm-img {
+                transform: scale(1.2) rotate(7deg) translate3d(0, 0, 50px) !important;
+            }
+
+        /* gambar jollymolly Desktop Version */
+        @media (min-width: 992px) {
+            .jm-img {
+                max-width: 400px;
+                top: 10%;  
+            }
+        }
 
 
 
 /* PROJECTS ---------------------------------------------------------------- */
-.projects {
-    margin-top: 100px;
-    background-image: url(../img/project/city.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-}
+    .projects {
+        margin-top: 100px;
+        background-image: url(../img/project/city.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+    }
 
-.projects h2 {
-    text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.6);
-}
+    .projects h2 {
+        text-shadow: 1px 1px 15px rgba(0, 0, 0, 0.6);
+    }
 
-.card {
-    border-radius: 15px;
-}
+    .card {
+        border-radius: 15px;
+    }
 
-.card img {
-    border-radius: 15px;
-}
+    .card img {
+        border-radius: 15px;
+    }
 
 
 
 /* GALLERY ------------------------------------------------------------------ */
-.gallery-img {
-    width: 100%;
-}
+    .gallery-img {
+        width: 100%;
+    }
 
-#gallery .row > * {                 /* (> * = apapun yang ada didalamnya persis setelah row, maka akn dihilangkan semua paddingnya)*/
-    padding: 0;
-}
+    #gallery .row > * {                 /* (> * = apapun yang ada didalamnya persis setelah row, maka akn dihilangkan semua paddingnya)*/
+        padding: 0;
+    }
 
 
 
 /* CONTACT ------------------------------------------------------------------ */
-.contact h2 {
-    margin-top: 70px;
-}
+    .contact h2 {
+        margin-top: 70px;
+    }
 
 
 /* CONNECT ------------------------------------------------------------------ */
-.ig, .gh, .link {
-    color: white;
-    font-size: 30px;
-    padding-left: 10px; 
- }
+    .ig, .gh, .link {
+        color: white;
+        font-size: 30px;
+        padding-left: 10px; 
+    }
 
 

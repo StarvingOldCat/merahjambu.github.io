@@ -59,7 +59,27 @@
 
     <!-- ABOUT START -->
     <section id="about" class="about">
-        <div class="container"> <!-- data-aos="fade-in" data-aos-offset="350" data-aos-duration="1100" -->
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-5" data-aos="fade-right">
+            <div>
+              <h2>About</h2>
+            </div>
+            <p><span class="fs-3">H</span>ello! my name is <a href="https://www.instagram.com/rizkur_/" target="_blank" class="fs-5" style="text-decoration: none;">Rizky Kurniawan</a>, I am a fresh graduate from a private university in south Jakarta, majoring in Information Engineering. I started studying the web programming languages when I graduated and i really interested to building my career in web developer, especially frontend web developer, I started to explore it myself by studying through channels youtube from Web Programming UNPAS taught by Mr. Sandhika Galih he is a good person and awesome lecturer and also I learned it from others video, courses and a bootcamp web frontend developer.</p>
+            <p>I am interested in technological developments, especially in the frontend design and i love to learn new things. In this website I will put my creativity and share projects that I have worked on. For now, the project I am working on is a personal project. I am very happy if I get input to make myself better and continue to grow.</p>
+          </div>
+
+          <div class="col-md-5" data-aos="fade-left">
+            <div class="jm-box">
+              <h3 class="jm-name text-light text-center pt-3">My Partners</h3>
+              <img class="jm-img" src="img/hero/jollymolly.png" alt="Jolly & Molly">
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <!-- About pertama -->
+        <!-- <div class="container"> 
             <div class="row text-center mb-5">
                 <div class="col">
                     <h2>About</h2>
@@ -74,7 +94,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptatum deleniti ab molestias, mollitia id distinctio similique provident, ad tempora ea aspernatur? Tenetur, provident non necessitatibus corporis facilis ad dolores! Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
     <!-- ABOUT END -->
 
@@ -304,70 +324,78 @@
 
 
     <!-- Option 1: Bootstrap Bundle with Popper (js cdn(online) nya bootstrap) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- AOS Javascript -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      const galleryImage = document.querySelectorAll('.gallery-img');
-      galleryImage.forEach((img, i) => {
-        img.dataset.aos = 'fade-down';
-        img.dataset.aosDelay = i * 100; //tergantung indeksnya, jadi setiap 100milisecond
-        img.dataset.aosDuration = 1000;
-      })
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      <script>
+        const galleryImage = document.querySelectorAll('.gallery-img');
+        galleryImage.forEach((img, i) => {
+          img.dataset.aos = 'fade-down';
+          img.dataset.aosDelay = i * 100; //tergantung indeksnya, jadi setiap 100milisecond
+          img.dataset.aosDuration = 1000;
+        })
 
-      AOS.init();
-    </script>
+        AOS.init();
+      </script>
 
     <!-- GSAP Animate -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script> <!-- GSAP TextPlugin-->
-    <script>
-      gsap.registerPlugin(TextPlugin);
-      gsap.to('.lead', {duration: 2, delay:1.5, text: 'Fresh Graduate | Front End Developer'})
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script> <!-- GSAP TextPlugin-->
+      <script>
+        gsap.registerPlugin(TextPlugin);
+        gsap.to('.lead', {duration: 2, delay:1.5, text: 'Fresh Graduate | Front End Developer'})
 
-      gsap.from('.jumbotron img', { duration: 1, y:-800, opacity: 0, ease: 'power1' })
-      gsap.from('.navbar', {duration: 1.5, y: -300, opacity: 0, ease: 'power2'})
-      gsap.from('.display-4', {duration: 1, x: -100, opacity: 0, delay: 0.5, ease: 'back'})
-    </script>
+        gsap.from('.jumbotron img', { duration: 1, y:-800, opacity: 0, ease: 'power1' })
+        gsap.from('.navbar', {duration: 1.5, y: -300, opacity: 0, ease: 'power2'})
+        gsap.from('.display-4', {duration: 1, x: -100, opacity: 0, delay: 0.5, ease: 'back'})
+      </script>
 
-
+    <!-- Tilt JS -->
+      <script type="text/javascript" src="js/vanilla-tilt.min.js"></script>
+      <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".jm-box"), {
+          max: 30,
+          speed: 700,
+        })
+        
+      </script>
 
 
 
     <!-- MY SCRIPT -->
-    <!-- Contact Form start -->
-    <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbw-KauFIcQcm2DuxBYH9oXEkeWhO_snKiR8Pgcz-PtFvaKyQHFH8zIRP8lxYKFVLh90/exec'  // link dari deployment appscriptnya google sheet (web app)
-      const form = document.forms['rizky-contact-form']     // samain dengan name form diatas
+      <!-- Contact Form start -->
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw-KauFIcQcm2DuxBYH9oXEkeWhO_snKiR8Pgcz-PtFvaKyQHFH8zIRP8lxYKFVLh90/exec'  // link dari deployment appscriptnya google sheet (web app)
+        const form = document.forms['rizky-contact-form']     // samain dengan name form diatas
 
-      const btnKirim = document.querySelector('.btn-kirim')
-      const btnLoading = document.querySelector('.btn-loading')
-      const myAlert = document.querySelector('.my-alert')
+        const btnKirim = document.querySelector('.btn-kirim')
+        const btnLoading = document.querySelector('.btn-loading')
+        const myAlert = document.querySelector('.my-alert')
 
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        // ketika tombol submit di klik(menjadi btn loading)
-        // tampilkan tombol loading, hilangkan tombol submit/kirim
-        btnLoading.classList.toggle('d-none')
-        btnKirim.classList.toggle('d-none')
-            // jadi toggle intinya ngebolak balikin yg tadinya ada jadi gak ada dan yg tadi nya gak ada jadi ada
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          // ketika tombol submit di klik(menjadi btn loading)
+          // tampilkan tombol loading, hilangkan tombol submit/kirim
+          btnLoading.classList.toggle('d-none')
+          btnKirim.classList.toggle('d-none')
+              // jadi toggle intinya ngebolak balikin yg tadinya ada jadi gak ada dan yg tadi nya gak ada jadi ada
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => {
-              // tampilkan tombol submit/loading, hilangkan tombol loading
-              btnLoading.classList.toggle('d-none')
-              btnKirim.classList.toggle('d-none')
-              // tampilkan alert (disini aja karna kondisin button sudah di klik)
-              myAlert.classList.toggle('d-none')
-              // rest isi form
-              form.reset()
-            console.log('Success!', response)
-          })
-          .catch(error => console.error('Error!', error.message))
-      })
-    </script>
-    <!-- Contact Form ends -->
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                // tampilkan tombol submit/loading, hilangkan tombol loading
+                btnLoading.classList.toggle('d-none')
+                btnKirim.classList.toggle('d-none')
+                // tampilkan alert (disini aja karna kondisin button sudah di klik)
+                myAlert.classList.toggle('d-none')
+                // rest isi form
+                form.reset()
+              console.log('Success!', response)
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+      <!-- Contact Form ends -->
 
   </body>
 </html>
